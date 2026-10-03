@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#090a0d">
 <meta name="description" content="Edgebook — your daily betting journal and monthly performance.">
 <title>Edgebook — Journal</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Edgebook">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23090a0d'/%3E%3Cpath d='M19 17h28v7H26v7h17v7H26v7h21v7H19Z' fill='%237e92ff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +33,17 @@ dialog{color:var(--text);width:min(480px,calc(100% - 32px));padding:0;max-height
 .form{display:block}.wizard-progress{margin-bottom:26px}.step-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:9px}.step-meta strong{color:#b6c2ff;font-weight:500}.step-track{display:flex;gap:5px}.step-track span{flex:1;height:3px;border-radius:3px;background:#2a2d39}.step-track .complete{background:#526fff}.step-track .current{background:#a1afff}.wizard-step[hidden]{display:none}.question{font-size:clamp(21px,5vw,25px);line-height:1.25;font-weight:500;letter-spacing:-.7px;margin:0 0 8px}.question-copy{font-size:13px;color:var(--muted);margin-bottom:22px}.money-input{position:relative}.money-input span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px}.money-input input{padding:17px 16px 17px 55px;font-size:28px;font-weight:500;letter-spacing:-.6px;height:74px}.field-stack{display:grid;gap:17px}.outcomes{display:grid;gap:10px}.form .outcome{position:relative;flex-direction:row;align-items:center;gap:14px;padding:15px;border:1px solid #303340;border-radius:10px;background:#101117;cursor:pointer}.outcome:hover{border-color:#626d94}.outcome:has(input:checked){background:#20263b;border-color:#859aff}.outcome input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}.outcome:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}.outcome-symbol{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:#1f232e;font-size:19px}.outcome strong{display:block;color:var(--text);font-size:14px;font-weight:500}.outcome small{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:2px}.outcome-check{margin-left:auto;width:17px;height:17px;border:1px solid #515665;border-radius:50%;flex-shrink:0}.outcome:has(input:checked) .outcome-check{border:5px solid #8a9eff;background:#14151b}.auto-return{font-size:12px;color:#b2b8ce;background:#1b1e2a;border:1px solid #30364c;padding:10px 12px;border-radius:8px;margin-bottom:20px}.receipt{border:1px solid #303340;border-radius:10px;background:#101117;margin-bottom:20px;overflow:hidden}.receipt-top{padding:16px 18px;border-bottom:1px solid var(--border)}.receipt-selection{font-size:16px;font-weight:500;overflow-wrap:anywhere}.receipt-market{font-size:12px;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.receipt-row{display:flex;justify-content:space-between;gap:14px;padding:7px 18px;font-size:13px;color:var(--muted)}.receipt-row:first-of-type{padding-top:14px}.receipt-row strong{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}.receipt-net{border-top:1px solid var(--border);margin-top:8px;padding:13px 18px}.receipt-net strong{font-size:18px}.receipt-net strong.negative{color:var(--negative)}.receipt-net strong.positive{color:var(--positive)}.optional-details{margin-top:18px}.optional-details summary{cursor:pointer;color:var(--muted);font-size:13px}.optional-details[open] summary{margin-bottom:16px}.wizard-actions{display:flex;gap:10px;margin-top:24px}.wizard-actions .primary{flex:1;display:flex;align-items:center;justify-content:center;gap:9px}.wizard-actions svg{height:16px;width:16px;stroke:currentColor;stroke-width:1.8;fill:none}.secondary{background:#20222b;border:1px solid #353845;border-radius:8px;min-height:44px;padding:0 18px;font-size:14px}.secondary:hover{background:#2a2d39}.secondary[hidden]{display:none}.form-error.visible{margin-top:16px}.review-date{font-size:12px;color:var(--muted);margin-bottom:14px}.wizard-step{animation:step-in .16s ease-out}@keyframes step-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@media(max-width:700px){.wizard-progress{margin-bottom:22px}.money-input input{font-size:28px}.form .outcome{padding:13px}.question-copy{margin-bottom:18px}.wizard-actions{margin-top:22px}}@media(prefers-reduced-motion:reduce){.wizard-step{animation:none}}
 
 dialog[open]{display:flex;flex-direction:column;overflow:hidden}.modal-head{flex-shrink:0}.form{display:flex;flex-direction:column;min-height:0;padding:0;gap:0}.wizard-body{padding:24px;overflow-y:auto;min-height:0;overscroll-behavior:contain}.wizard-actions{margin:0;padding:16px 24px;border-top:1px solid var(--border);flex-shrink:0}.question:focus{outline:none}@media(max-width:700px){.form{padding:0;gap:0}.wizard-body{padding:20px}.wizard-actions{margin:0;padding:14px 20px}}@media(max-height:600px){.modal-head{padding-top:16px;padding-bottom:16px}.wizard-progress{margin-bottom:18px}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.install-button{display:flex;align-items:center;gap:7px;padding:7px 11px;min-height:36px;background:#1b2032;border:1px solid #37405f;border-radius:8px;font-size:12px;font-weight:500;flex-shrink:0}.install-button svg{width:16px;height:16px;stroke:var(--accent);stroke-width:1.7;fill:none}.install-button[hidden]{display:none}.header-inner{gap:28px}.header-note{margin-left:auto}.connection-status{padding:11px 15px;color:#e4c791;background:#282115;border:1px solid #51412c;border-radius:8px;margin-bottom:20px;font-size:13px}.history-filters{display:grid;grid-template-columns:minmax(0,1fr) 155px 140px;gap:10px;padding:16px 24px;border-bottom:1px solid var(--border)}.history-filters input,.history-filters select{font-size:13px;min-height:40px;padding:9px 11px}.history-search{position:relative}.history-search input{padding-left:35px}.history-search svg{position:absolute;left:12px;top:13px;width:15px;height:15px;stroke:var(--muted);stroke-width:1.7;fill:none;pointer-events:none}.history-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 24px;border-top:1px solid var(--border)}.history-pages{display:flex;align-items:center;gap:10px}.history-pages span{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}.history-range{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}.history-footer[hidden]{display:none}.history-error{padding:12px 24px;color:#ffa0b8;font-size:13px;border-bottom:1px solid var(--border)}.history-error .retry{margin-left:8px}.table-scroll{max-height:520px;overscroll-behavior:contain}th{position:sticky;top:0;z-index:1}.bet-selection{display:block;max-width:240px;overflow:hidden;text-overflow:ellipsis}.history-cards{display:none}.install-guide{padding:24px;overflow-y:auto}.install-guide h3{font-size:15px;font-weight:500;margin:0 0 9px}.install-guide ol{padding-left:20px;margin:0 0 24px;color:var(--muted);font-size:14px}.install-guide li{margin-bottom:7px}.install-guide strong{font-weight:500;color:var(--text)}.install-guide p{font-size:12px;color:var(--muted)}.install-platform+.install-platform{border-top:1px solid var(--border);padding-top:20px}.history[aria-busy=true] .table-scroll,.history[aria-busy=true] .history-cards{opacity:.45;pointer-events:none}.empty[hidden]{display:none}.header-inner{padding-left:max(env(safe-area-inset-left),clamp(18px,4vw,48px));padding-right:max(env(safe-area-inset-right),clamp(18px,4vw,48px))}main{padding-bottom:max(64px,env(safe-area-inset-bottom))}
+@media(max-width:700px){.header-inner{position:relative;gap:0}.install-button{position:absolute;right:18px;width:36px;padding:0;justify-content:center}.install-label{display:none}.history-filters{padding:14px 16px;grid-template-columns:1fr 1fr;gap:8px}.history-filters input,.history-filters select{font-size:16px;min-height:44px}.history-search{grid-column:1/-1}.history-search svg{top:14px}.history .table-scroll{display:none}.history-cards{display:block;max-height:500px;overflow-y:auto;overscroll-behavior:contain}.history-card{padding:16px;border-bottom:1px solid var(--border)}.history-card:last-child{border-bottom:0}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.card-selection{font-size:14px;font-weight:500;line-height:1.4;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.card-meta{font-size:11px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere}.result-tag{display:inline-block;font-size:10px;padding:2px 5px;border-radius:4px;background:#222530;margin-right:6px}.card-numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px;font-variant-numeric:tabular-nums}.card-numbers span{font-size:10px;color:var(--muted);display:block}.card-numbers strong{display:block;font-size:13px;font-weight:500;margin-top:3px;overflow-wrap:anywhere}.card-notes{font-size:12px;color:var(--muted);margin-top:12px}.card-notes summary{cursor:pointer}.card-notes p{padding-top:7px;overflow-wrap:anywhere;white-space:pre-wrap}.history-footer{padding:12px 16px;flex-wrap:wrap}.history-range{font-size:11px}.history-pages{gap:8px}.history-pages .icon-button{width:32px;height:32px}.history-pages span{font-size:11px}.install-guide{padding:20px}.history-error{padding:12px 16px}}
+
 </style>
 </head>
 <body>
-<header><div class="header-inner"><a class="brand" href="./" aria-label="Edgebook home"><span class="brandmark" aria-hidden="true">e</span>edgebook</a><a class="nav-item" href="#calendar-section">Journal</a><span class="header-note">MYR / RM</span></div></header>
+<header><div class="header-inner"><a class="brand" href="./" aria-label="Edgebook home"><span class="brandmark" aria-hidden="true">e</span>edgebook</a><a class="nav-item" href="#calendar-section">Journal</a><span class="header-note">MYR / RM</span><button id="installApp" class="install-button" aria-label="Install Edgebook"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v10m-4-4 4 4 4-4M3 13v4h14v-4"/></svg><span class="install-label">Install app</span></button></div></header>
 <main>
 <div class="pagehead"><div><h1>Performance overview</h1><p>Your journal, one day at a time.</p></div><span class="unit">All time</span></div>
+<div id="connectionStatus" class="connection-status" role="status" hidden>Offline. Reconnect to load or save bets.</div>
 <div id="loadError" class="error-strip" role="alert"><span id="loadErrorText"></span><button id="retry" class="retry">Retry</button></div>
 <section class="stats" aria-label="All-time performance">
 <div class="stat"><div class="stat-label"><svg class="stat-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 15 7 10l4 3 7-9M13 4h5v5"/></svg>Net P&amp;L</div><div id="pnl" class="metric">—</div></div>
@@ -46,7 +56,12 @@ dialog[open]{display:flex;flex-direction:column;overflow:hidden}.modal-head{flex
 <div id="calendar" class="calendar"></div>
 <div class="calendar-footer"><div class="legend"><span><i class="swatch win"></i>Profit</span><span><i class="swatch loss"></i>Loss</span><span><i class="swatch"></i>No bets</span></div><div class="month-summary"><span id="monthCount">Loading…</span><span class="separator">/</span><strong id="monthPnl">—</strong><span>RM</span></div></div>
 </section>
-<section class="panel history" aria-labelledby="history-heading"><div class="history-head"><h2 id="history-heading" class="section-heading">Bet history</h2><span id="historyCount" class="history-meta">Loading…</span></div><div class="table-scroll"><table><thead><tr><th>Date</th><th class="market-column">Market</th><th>Selection</th><th class="number">Stake</th><th class="number">Return</th><th class="number">P&amp;L</th><th><span class="sr-label" aria-label="Actions"></span></th></tr></thead><tbody id="rows"></tbody></table></div><div id="empty" class="empty"><div class="empty-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-12 5h8"/></svg></div><div id="emptyTitle" class="empty-title">Loading your journal</div><p id="emptyText">Connecting to your cloud data.</p></div></section>
+<section id="historySection" class="panel history" aria-labelledby="history-heading"><div class="history-head"><h2 id="history-heading" class="section-heading">Bet history</h2><span id="historyCount" class="history-meta" aria-live="polite">Loading…</span></div>
+<div class="history-filters"><label class="history-search"><span class="sr-only">Search bets</span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12 12 5 5"/></svg><input id="historySearch" type="search" placeholder="Search bets" maxlength="200" autocomplete="off"></label><label><span class="sr-only">History period</span><select id="historyScope"><option value="month">Calendar month</option><option value="all">All time</option></select></label><label><span class="sr-only">Filter by result</span><select id="historyResult"><option value="">All results</option><option value="win">Wins</option><option value="loss">Losses</option><option value="push">Push / void</option></select></label></div>
+<div id="historyError" class="history-error" role="alert" hidden><span id="historyErrorText"></span><button id="retryHistory" class="retry" type="button">Retry</button></div>
+<div class="table-scroll"><table><thead><tr><th>Date</th><th class="market-column">Market</th><th>Selection</th><th class="number">Stake</th><th class="number">Return</th><th class="number">P&amp;L</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="rows"></tbody></table></div><div id="historyCards" class="history-cards"></div>
+<div id="empty" class="empty"><div class="empty-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-12 5h8"/></svg></div><div id="emptyTitle" class="empty-title">Loading your journal</div><p id="emptyText">Connecting to your cloud data.</p></div>
+<div id="historyFooter" class="history-footer" hidden><span id="historyRange" class="history-range"></span><div class="history-pages"><button id="prevPage" class="icon-button" aria-label="Previous history page" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button><span id="historyPage" aria-live="polite"></span><button id="nextPage" class="icon-button" aria-label="Next history page" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5"/></svg></button></div></div></section>
 </main>
 <dialog id="betModal" aria-labelledby="modalTitle"><div class="modal-head"><div><h2 id="modalTitle">Log a bet</h2><p id="modalDate"></p></div><button id="closeModal" class="icon-button" aria-label="Close bet form"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
 <form id="modalForm" class="form" novalidate>
@@ -82,12 +97,16 @@ dialog[open]{display:flex;flex-direction:column;overflow:hidden}.modal-head{flex
 <div class="wizard-actions"><button id="backStep" class="secondary" type="button" hidden>Back</button><button id="saveBet" class="primary" type="submit"><span id="nextLabel">Continue</span><svg id="nextArrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></button></div>
 </form>
 </dialog>
+<dialog id="installModal" aria-labelledby="installTitle"><div class="modal-head"><div><h2 id="installTitle">Install Edgebook</h2><p>Your journal, on your home screen.</p></div><button id="closeInstall" class="icon-button" aria-label="Close installation instructions"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div><div class="install-guide"><div class="install-platform"><h3>iPhone / iPad</h3><ol><li>Open this website in <strong>Safari</strong>.</li><li>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</li><li>Keep “Open as Web App” on if shown, then tap <strong>Add</strong>.</li></ol></div><div class="install-platform"><h3>Android</h3><ol><li>Open this website in <strong>Chrome</strong>.</li><li>Open the <strong>⋮ menu</strong>.</li><li>Choose <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li></ol></div><p>Bets are stored in the cloud. Connect to the internet to load or save them.</p></div></dialog>
 <div id="toast" class="toast" role="status"></div>
 <script>
-const API='https://obknxomnliwjdpsxcqkc.supabase.co/rest/v1/bets';
+const API='https://obknxomnliwjdpsxcqkc.supabase.co/rest/v1';
 const PUBLIC_KEY='sb_publishable_Qe3gk5Wx48j_YhyJypoR8Q_2xmbnCNL';
 const $=s=>document.querySelector(s);
-let bets=[],ready=false,viewed=new Date(new Date().getFullYear(),new Date().getMonth(),1),opener=null,toastTimer;
+let bets=[],ready=false,summaryReady=false,totals=null,monthDays=[],viewed=new Date(new Date().getFullYear(),new Date().getMonth(),1),opener=null,toastTimer;
+const PAGE_SIZE=20,timezone=Intl.DateTimeFormat().resolvedOptions().timeZone;
+let historyPage=0,historyTotal=0,historyReady=false,historyLoading=false,historyVersion=0,summaryVersion=0,searchTimer;
+const monthBounds=()=>({p_start:viewed.toISOString(),p_end:new Date(viewed.getFullYear(),viewed.getMonth()+1,1).toISOString()});
 const amount=n=>new Intl.NumberFormat('en-MY',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
 const money=n=>'RM '+amount(n);
 const signed=n=>(n>0?'+':n<0?'−':'')+amount(Math.abs(n));
@@ -95,29 +114,47 @@ const compact=n=>(n>0?'+':n<0?'−':'')+new Intl.NumberFormat('en-MY',{notation:
 const tone=n=>n>0?'positive':n<0?'negative':'neutral';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const localDay=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-async function request(path='',options={}){
- const res=await fetch(API+path,{...options,headers:{apikey:PUBLIC_KEY,'Content-Type':'application/json',...options.headers},signal:AbortSignal.timeout(15000)});
+async function request(path,options={}){
+ if(!navigator.onLine)throw new Error('You’re offline. Reconnect and try again.');
+ const res=await fetch(API+'/'+path,{...options,headers:{apikey:PUBLIC_KEY,'Content-Type':'application/json',...options.headers},signal:AbortSignal.timeout(15000)});
  if(!res.ok){let detail;try{detail=await res.json()}catch{}throw new Error(detail?.message||'Cloud request failed ('+res.status+').')}
  return res.status===204?null:res.json();
 }
 function toast(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),3500)}
 function render(){
- if(ready){const stake=bets.reduce((s,b)=>s+b.stake,0),pnl=bets.reduce((s,b)=>s+b.pnl,0);$('#pnl').innerHTML='<span class="currency">RM</span>'+amount(pnl);$('#pnl').className='metric '+tone(pnl);$('#staked').innerHTML='<span class="currency">RM</span>'+amount(stake);$('#roi').textContent=amount(stake?pnl/stake*100:0)+'%';$('#roi').className='metric '+tone(pnl);$('#winrate').textContent=amount(bets.length?bets.filter(b=>b.result==='win').length/bets.length*100:0)+'%';}
+ if(totals){const stake=Number(totals.stake),pnl=Number(totals.pnl);$('#pnl').innerHTML='<span class="currency">RM</span>'+amount(pnl);$('#pnl').className='metric '+tone(pnl);$('#staked').innerHTML='<span class="currency">RM</span>'+amount(stake);$('#roi').textContent=amount(stake?pnl/stake*100:0)+'%';$('#roi').className='metric '+tone(pnl);$('#winrate').textContent=amount(totals.count?totals.wins/totals.count*100:0)+'%';}
  const y=viewed.getFullYear(),m=viewed.getMonth(),first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate(),today=localDay(new Date());
- const monthly=bets.filter(b=>{const d=new Date(b.date);return d.getFullYear()===y&&d.getMonth()===m});
  $('#monthName').textContent=viewed.toLocaleDateString('en-MY',{month:'long',year:'numeric'});
- if(ready){const p=monthly.reduce((s,b)=>s+b.pnl,0);$('#monthCount').textContent=monthly.length+' bet'+(monthly.length===1?'':'s');$('#monthPnl').textContent=signed(p);$('#monthPnl').className=tone(p);$('#historyCount').textContent=bets.length+' entries';}
+ $('#historyScope option[value=month]').textContent=viewed.toLocaleDateString('en-MY',{month:'short',year:'numeric'});
+ if(summaryReady){const count=monthDays.reduce((s,d)=>s+Number(d.count),0),p=monthDays.reduce((s,d)=>s+Number(d.pnl),0);$('#monthCount').textContent=count+' bet'+(count===1?'':'s');$('#monthPnl').textContent=signed(p);$('#monthPnl').className=tone(p);}
+ else{$('#monthCount').textContent='Loading…';$('#monthPnl').textContent='—';$('#monthPnl').className='';}
+ const dayMap=new Map(monthDays.map(d=>[d.day,d]));
  let cal=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>'<div class="weekday">'+d+'</div>').join('');
  for(let i=0;i<first;i++)cal+='<div class="calday blank" aria-hidden="true"></div>';
  for(let d=1;d<=days;d++){
- const date=localDay(new Date(y,m,d)),entries=monthly.filter(b=>localDay(new Date(b.date))===date),p=entries.reduce((s,b)=>s+b.pnl,0),fullDate=new Date(y,m,d).toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
- cal+='<button class="calday '+(date===today?'today ':'')+(entries.length?(p>0?'pos':p<0?'neg':''):'')+'" data-date="'+date+'" aria-label="Log a bet for '+fullDate+(entries.length?'. P and L '+money(p):'')+'" '+(!ready?'disabled':'')+'><span class="num">'+d+'</span>'+(entries.length?'<span class="day-value '+tone(p)+'" title="'+signed(p)+' RM"><span class="value-full">'+signed(p)+'</span><span class="value-compact">'+compact(p)+'</span><span class="day-count">'+entries.length+' bet'+(entries.length===1?'':'s')+'</span></span>':'')+'</button>';
+  const date=localDay(new Date(y,m,d)),entry=summaryReady?dayMap.get(date):null,p=Number(entry?.pnl||0),count=Number(entry?.count||0),fullDate=new Date(y,m,d).toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'});
+  cal+='<button class="calday '+(date===today?'today ':'')+(count?(p>0?'pos':p<0?'neg':''):'')+'" data-date="'+date+'" aria-label="Log a bet for '+fullDate+(count?'. P and L '+money(p):'')+'" '+(!ready?'disabled':'')+'><span class="num">'+d+'</span>'+(count?'<span class="day-value '+tone(p)+'" title="'+signed(p)+' RM"><span class="value-full">'+signed(p)+'</span><span class="value-compact">'+compact(p)+'</span><span class="day-count">'+count+' bet'+(count===1?'':'s')+'</span></span>':'')+'</button>';
  }
  for(let i=first+days;i%7!==0;i++)cal+='<div class="calday blank" aria-hidden="true"></div>';
  $('#calendar').innerHTML=cal;
- $('#rows').innerHTML=bets.slice().sort((a,b)=>new Date(b.date)-new Date(a.date)).map(b=>'<tr><td>'+new Date(b.date).toLocaleDateString('en-MY',{day:'numeric',month:'short'})+'<span class="bet-detail">'+new Date(b.date).toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'})+'</span></td><td class="market-column">'+esc(b.market)+'</td><td title="'+esc(b.notes||'')+'">'+esc(b.selection)+'<span class="bet-detail">'+esc(b.result==='push'?'Push':b.result==='win'?'Win':'Loss')+'</span></td><td class="number">'+amount(b.stake)+'</td><td class="number">'+amount(b.return)+'</td><td class="number '+tone(b.pnl)+'">'+signed(b.pnl)+'</td><td class="number"><button class="delete" data-id="'+esc(b.id)+'" aria-label="Delete bet: '+esc(b.selection)+'"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M8 3h4m-7 2 1 12h8l1-12M8 8v6m4-6v6"/></svg></button></td></tr>').join('');
+}
+function deleteMarkup(b){return '<button class="delete" data-id="'+esc(b.id)+'" aria-label="Delete bet: '+esc(b.selection)+'"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M8 3h4m-7 2 1 12h8l1-12M8 8v6m4-6v6"/></svg></button>';}
+function resultLabel(b){return b.result==='push'?'Push / void':b.result==='win'?'Win':'Loss';}
+function renderHistory(){
+ $('#historySection').setAttribute('aria-busy',String(historyLoading));
+ $('#historyCount').textContent=historyLoading?'Loading…':historyReady?historyTotal+' '+(historyTotal===1?'entry':'entries'):'Unavailable';
+ $('#rows').innerHTML=bets.map(b=>'<tr><td>'+new Date(b.date).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'})+'<span class="bet-detail">'+new Date(b.date).toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'})+'</span></td><td class="market-column">'+esc(b.market)+'</td><td title="'+esc(b.notes||b.selection)+'"><span class="bet-selection">'+esc(b.selection)+'</span><span class="bet-detail">'+resultLabel(b)+'</span></td><td class="number">'+amount(b.stake)+'</td><td class="number">'+amount(b.return)+'</td><td class="number '+tone(b.pnl)+'">'+signed(b.pnl)+'</td><td class="number">'+deleteMarkup(b)+'</td></tr>').join('');
+ $('#historyCards').innerHTML=bets.map(b=>'<article class="history-card"><div class="card-top"><div><div class="card-selection">'+esc(b.selection)+'</div><div class="card-meta"><span class="result-tag '+(b.result==='win'?'positive':b.result==='loss'?'negative':'')+'">'+resultLabel(b)+'</span>'+esc(b.market)+' · '+new Date(b.date).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'})+' · '+new Date(b.date).toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'})+'</div></div>'+deleteMarkup(b)+'</div><div class="card-numbers"><div><span>Stake · RM</span><strong>'+amount(b.stake)+'</strong></div><div><span>Return · RM</span><strong>'+amount(b.return)+'</strong></div><div><span>Net P&amp;L · RM</span><strong class="'+tone(b.pnl)+'">'+signed(b.pnl)+'</strong></div></div>'+(b.notes?'<details class="card-notes"><summary>Notes</summary><p>'+esc(b.notes)+'</p></details>':'')+'</article>').join('');
  $('#empty').hidden=bets.length>0;
- if(ready){$('#emptyTitle').textContent='Your journal starts here';$('#emptyText').textContent='Tap a date on the calendar to log your first bet.';}
+ if(!bets.length){
+  $('#emptyTitle').textContent=historyLoading?'Loading your history':!historyReady?'History is unavailable':'No bets here yet';
+  $('#emptyText').textContent=historyLoading?'Connecting to your cloud data.':!historyReady?'Retry to load this view.':$('#historySearch').value||$('#historyResult').value?'Try another search or result filter.':$('#historyScope').value==='month'?'Choose another calendar month, or view all time.':'Tap a date on the calendar to log a bet.';
+ }
+ const pages=Math.max(1,Math.ceil(historyTotal/PAGE_SIZE));
+ $('#historyFooter').hidden=!historyReady||historyTotal===0;
+ $('#historyRange').textContent=historyTotal?(historyPage*PAGE_SIZE+1)+'–'+(historyPage*PAGE_SIZE+bets.length)+' of '+historyTotal:'';
+ $('#historyPage').textContent=(historyPage+1)+' / '+pages;
+ $('#prevPage').disabled=historyLoading||historyPage===0;$('#nextPage').disabled=historyLoading||historyPage+1>=pages;
 }
 let currentStep='stake',saving=false;
 const field=name=>$('#modalForm [name="'+name+'"]');
@@ -201,24 +238,68 @@ $('#modalForm').onsubmit=async e=>{
  saving=true;$('#modalForm').setAttribute('aria-busy','true');
  const controls=Array.from(document.querySelectorAll('#modalForm input, #modalForm button, #closeModal'));controls.forEach(control=>control.disabled=true);
  $('#nextLabel').textContent='Saving…';
- try{const rows=await request('',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});bets.push(fromRow(rows[0]));render();$('#betModal').close();toast('Bet saved');}
+ try{await request('bets',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify(payload)});$('#betModal').close();toast('Bet saved');void loadCloud();}
  catch(err){showFormError('Could not save. '+err.message);}
  finally{saving=false;$('#modalForm').removeAttribute('aria-busy');controls.forEach(control=>control.disabled=false);$('#nextLabel').textContent='Save bet';}
 };
-$('#rows').addEventListener('click',async e=>{
- const btn=e.target.closest('[data-id]');if(!btn)return;btn.disabled=true;
- try{await request('?id=eq.'+encodeURIComponent(btn.dataset.id),{method:'DELETE',headers:{Prefer:'return=minimal'}});bets=bets.filter(b=>b.id!==btn.dataset.id);render();toast('Bet deleted');}catch(err){toast('Could not delete. '+err.message);btn.disabled=false;}
+$('#historySection').addEventListener('click',async e=>{
+ const btn=e.target.closest('[data-id]');if(!btn||historyLoading)return;btn.disabled=true;
+ try{await request('bets?id=eq.'+encodeURIComponent(btn.dataset.id),{method:'DELETE',headers:{Prefer:'return=minimal'}});toast('Bet deleted');void loadCloud();}catch(err){toast('Could not delete. '+err.message);btn.disabled=false;}
 });
-$('#prevMonth').onclick=()=>{viewed=new Date(viewed.getFullYear(),viewed.getMonth()-1,1);render()};
-$('#nextMonth').onclick=()=>{viewed=new Date(viewed.getFullYear(),viewed.getMonth()+1,1);render()};
+function moveMonth(delta){viewed=new Date(viewed.getFullYear(),viewed.getMonth()+delta,1);void loadSummary();if($('#historyScope').value==='month'){historyPage=0;void loadHistory();}}
+$('#prevMonth').onclick=()=>moveMonth(-1);$('#nextMonth').onclick=()=>moveMonth(1);
 function fromRow(b){return{id:b.id,market:b.market,selection:b.selection,stake:Number(b.stake),return:Number(b.return),result:b.result,date:b.bet_date,notes:b.notes,pnl:Number(b.pnl)}}
-async function loadCloud(){
- $('#retry').disabled=true;$('#loadError').classList.remove('visible');
- try{let rows=[],offset=0;while(true){const page=await request('?select=*&order=bet_date.desc,id.asc&limit=1000&offset='+offset);rows.push(...page);if(page.length<1000)break;offset+=1000;}bets=rows.map(fromRow);ready=true;render();}
- catch(err){$('#loadErrorText').textContent='Could not load your journal. '+err.message;$('#loadError').classList.add('visible');if(!ready){$('#emptyTitle').textContent='Your journal is unavailable';$('#emptyText').textContent='Retry when the cloud connection is restored.';$('#historyCount').textContent='Unavailable';$('#monthCount').textContent='Unavailable';}}
- finally{$('#retry').disabled=false;}
+async function loadSummary(){
+ const version=++summaryVersion;summaryReady=false;ready=false;monthDays=[];$('#retry').disabled=true;$('#loadError').classList.remove('visible');render();
+ try{
+  const data=await request('rpc/edgebook_summary',{method:'POST',body:JSON.stringify({...monthBounds(),p_timezone:timezone})});
+  if(version!==summaryVersion)return;
+  totals=data.totals;monthDays=data.days;summaryReady=true;ready=navigator.onLine;render();
+ }catch(err){if(version!==summaryVersion)return;$('#loadErrorText').textContent='Could not load your overview. '+err.message;$('#loadError').classList.add('visible');$('#monthCount').textContent='Unavailable';}
+ finally{if(version===summaryVersion)$('#retry').disabled=false;}
 }
-$('#retry').onclick=loadCloud;render();loadCloud();
+async function loadHistory(){
+ const version=++historyVersion;historyLoading=true;historyReady=false;bets=[];$('#historyError').hidden=true;renderHistory();
+ const scope=$('#historyScope').value==='month'?monthBounds():{p_start:null,p_end:null};
+ try{
+  const data=await request('rpc/edgebook_history',{method:'POST',body:JSON.stringify({...scope,p_search:$('#historySearch').value.trim(),p_result:$('#historyResult').value,p_limit:PAGE_SIZE,p_offset:historyPage*PAGE_SIZE})});
+  if(version!==historyVersion)return;
+  historyTotal=Number(data.total);
+  if(historyPage>0&&historyPage>=Math.ceil(historyTotal/PAGE_SIZE)){historyPage=Math.max(0,Math.ceil(historyTotal/PAGE_SIZE)-1);return await loadHistory();}
+  bets=data.items.map(fromRow);historyReady=true;
+ }catch(err){if(version!==historyVersion)return;$('#historyErrorText').textContent='Could not load history. '+err.message;$('#historyError').hidden=false;}
+ finally{
+  if(version===historyVersion){historyLoading=false;renderHistory();$('.table-scroll').scrollTop=0;$('#historyCards').scrollTop=0;}
+ }
+}
+async function loadCloud(){await Promise.all([loadSummary(),loadHistory()]);}
+function resetHistory(){clearTimeout(searchTimer);historyPage=0;void loadHistory();}
+$('#historyScope').onchange=resetHistory;$('#historyResult').onchange=resetHistory;
+$('#historySearch').oninput=()=>{clearTimeout(searchTimer);++historyVersion;historyLoading=true;renderHistory();searchTimer=setTimeout(resetHistory,300)};
+$('#prevPage').onclick=()=>{if(historyPage>0&&!historyLoading){historyPage--;void loadHistory();}};
+$('#nextPage').onclick=()=>{if((historyPage+1)*PAGE_SIZE<historyTotal&&!historyLoading){historyPage++;void loadHistory();}};
+$('#retryHistory').onclick=()=>{if(!historyLoading)void loadHistory();};$('#retry').onclick=loadCloud;
+
+let installPrompt=null;
+const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+function syncInstall(){ $('#installApp').hidden=standalone(); }
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;syncInstall();});
+window.addEventListener('appinstalled',()=>{installPrompt=null;syncInstall();toast('Edgebook installed');});
+matchMedia('(display-mode: standalone)').addEventListener('change',syncInstall);
+$('#installApp').onclick=async()=>{
+ if(installPrompt){
+  const prompt=installPrompt;installPrompt=null;
+  try{await prompt.prompt();await prompt.userChoice;}catch{$('#installModal').showModal();}
+ }else{$('#installModal').showModal();}
+};
+$('#closeInstall').onclick=()=>$('#installModal').close();
+$('#installModal').addEventListener('close',()=>$('#installApp').focus());
+$('#installModal').addEventListener('click',e=>{if(e.target!==$('#installModal'))return;const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();});
+function syncConnection(){ $('#connectionStatus').hidden=navigator.onLine;ready=summaryReady&&navigator.onLine;render(); }
+window.addEventListener('offline',syncConnection);
+window.addEventListener('online',()=>{syncConnection();void loadCloud();});
+if('serviceWorker' in navigator&&window.isSecureContext){navigator.serviceWorker.register('./sw.js').catch(()=>{console.warn('Home screen app support could not start.');});}
+syncInstall();syncConnection();renderHistory();void loadCloud();
 </script>
 </body>
 </html>
