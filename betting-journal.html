@@ -24,6 +24,10 @@ dialog{color:var(--text);width:min(480px,calc(100% - 32px));padding:0;max-height
 .currency{font-size:.55em;color:var(--muted);letter-spacing:0;margin-right:3px}.value-compact{display:none}.day-value{width:100%}
 @media(max-width:700px){.value-full{display:none}.value-compact{display:inline}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.form{display:block}.wizard-progress{margin-bottom:26px}.step-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:9px}.step-meta strong{color:#b6c2ff;font-weight:500}.step-track{display:flex;gap:5px}.step-track span{flex:1;height:3px;border-radius:3px;background:#2a2d39}.step-track .complete{background:#526fff}.step-track .current{background:#a1afff}.wizard-step[hidden]{display:none}.question{font-size:clamp(21px,5vw,25px);line-height:1.25;font-weight:500;letter-spacing:-.7px;margin:0 0 8px}.question-copy{font-size:13px;color:var(--muted);margin-bottom:22px}.money-input{position:relative}.money-input span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px}.money-input input{padding:17px 16px 17px 55px;font-size:28px;font-weight:500;letter-spacing:-.6px;height:74px}.field-stack{display:grid;gap:17px}.outcomes{display:grid;gap:10px}.form .outcome{position:relative;flex-direction:row;align-items:center;gap:14px;padding:15px;border:1px solid #303340;border-radius:10px;background:#101117;cursor:pointer}.outcome:hover{border-color:#626d94}.outcome:has(input:checked){background:#20263b;border-color:#859aff}.outcome input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}.outcome:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}.outcome-symbol{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:#1f232e;font-size:19px}.outcome strong{display:block;color:var(--text);font-size:14px;font-weight:500}.outcome small{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:2px}.outcome-check{margin-left:auto;width:17px;height:17px;border:1px solid #515665;border-radius:50%;flex-shrink:0}.outcome:has(input:checked) .outcome-check{border:5px solid #8a9eff;background:#14151b}.auto-return{font-size:12px;color:#b2b8ce;background:#1b1e2a;border:1px solid #30364c;padding:10px 12px;border-radius:8px;margin-bottom:20px}.receipt{border:1px solid #303340;border-radius:10px;background:#101117;margin-bottom:20px;overflow:hidden}.receipt-top{padding:16px 18px;border-bottom:1px solid var(--border)}.receipt-selection{font-size:16px;font-weight:500;overflow-wrap:anywhere}.receipt-market{font-size:12px;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.receipt-row{display:flex;justify-content:space-between;gap:14px;padding:7px 18px;font-size:13px;color:var(--muted)}.receipt-row:first-of-type{padding-top:14px}.receipt-row strong{font-weight:500;color:var(--text);font-variant-numeric:tabular-nums}.receipt-net{border-top:1px solid var(--border);margin-top:8px;padding:13px 18px}.receipt-net strong{font-size:18px}.receipt-net strong.negative{color:var(--negative)}.receipt-net strong.positive{color:var(--positive)}.optional-details{margin-top:18px}.optional-details summary{cursor:pointer;color:var(--muted);font-size:13px}.optional-details[open] summary{margin-bottom:16px}.wizard-actions{display:flex;gap:10px;margin-top:24px}.wizard-actions .primary{flex:1;display:flex;align-items:center;justify-content:center;gap:9px}.wizard-actions svg{height:16px;width:16px;stroke:currentColor;stroke-width:1.8;fill:none}.secondary{background:#20222b;border:1px solid #353845;border-radius:8px;min-height:44px;padding:0 18px;font-size:14px}.secondary:hover{background:#2a2d39}.secondary[hidden]{display:none}.form-error.visible{margin-top:16px}.review-date{font-size:12px;color:var(--muted);margin-bottom:14px}.wizard-step{animation:step-in .16s ease-out}@keyframes step-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@media(max-width:700px){.wizard-progress{margin-bottom:22px}.money-input input{font-size:28px}.form .outcome{padding:13px}.question-copy{margin-bottom:18px}.wizard-actions{margin-top:22px}}@media(prefers-reduced-motion:reduce){.wizard-step{animation:none}}
+
+dialog[open]{display:flex;flex-direction:column;overflow:hidden}.modal-head{flex-shrink:0}.form{display:flex;flex-direction:column;min-height:0;padding:0;gap:0}.wizard-body{padding:24px;overflow-y:auto;min-height:0;overscroll-behavior:contain}.wizard-actions{margin:0;padding:16px 24px;border-top:1px solid var(--border);flex-shrink:0}.question:focus{outline:none}@media(max-width:700px){.form{padding:0;gap:0}.wizard-body{padding:20px}.wizard-actions{margin:0;padding:14px 20px}}@media(max-height:600px){.modal-head{padding-top:16px;padding-bottom:16px}.wizard-progress{margin-bottom:18px}}
 </style>
 </head>
 <body>
@@ -45,7 +49,38 @@ dialog{color:var(--text);width:min(480px,calc(100% - 32px));padding:0;max-height
 <section class="panel history" aria-labelledby="history-heading"><div class="history-head"><h2 id="history-heading" class="section-heading">Bet history</h2><span id="historyCount" class="history-meta">Loading…</span></div><div class="table-scroll"><table><thead><tr><th>Date</th><th class="market-column">Market</th><th>Selection</th><th class="number">Stake</th><th class="number">Return</th><th class="number">P&amp;L</th><th><span class="sr-label" aria-label="Actions"></span></th></tr></thead><tbody id="rows"></tbody></table></div><div id="empty" class="empty"><div class="empty-symbol"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-12 5h8"/></svg></div><div id="emptyTitle" class="empty-title">Loading your journal</div><p id="emptyText">Connecting to your cloud data.</p></div></section>
 </main>
 <dialog id="betModal" aria-labelledby="modalTitle"><div class="modal-head"><div><h2 id="modalTitle">Log a bet</h2><p id="modalDate"></p></div><button id="closeModal" class="icon-button" aria-label="Close bet form"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
-<form id="modalForm" class="form"><label class="full">Sport / market<input autofocus required name="market" maxlength="150" placeholder="Premier League" autocomplete="off"></label><label class="full">Selection<input required name="selection" maxlength="200" placeholder="Arsenal to win" autocomplete="off"></label><label>Stake (RM)<input required name="stake" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0.00"></label><label>Total return (RM)<input required name="return" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></label><label class="full">Result<select name="result"><option value="win">Win</option><option value="loss">Loss</option><option value="push">Push / stake returned</option></select><span class="form-note">Total return includes your original stake.</span></label><label class="full">Date &amp; time<input required name="date" type="datetime-local"></label><label class="full">Notes <span class="form-note">(optional)</span><input name="notes" maxlength="1000" placeholder="Odds, context, or a lesson" autocomplete="off"></label><p id="formError" class="form-error full" role="alert"></p><button id="saveBet" class="primary full" type="submit">Save bet</button></form>
+<form id="modalForm" class="form" novalidate>
+<div class="wizard-body"><div class="wizard-progress"><div class="step-meta"><span id="stepCount" aria-live="polite"></span><strong id="stepLabel"></strong></div><div id="stepTrack" class="step-track" aria-hidden="true"></div></div>
+<section class="wizard-step" data-step="stake" aria-labelledby="stakeQuestion">
+<h3 id="stakeQuestion" class="question">How much did you stake?</h3><p class="question-copy">The amount you put on this bet.</p>
+<div class="money-input"><span aria-hidden="true">RM</span><input autofocus required name="stake" aria-labelledby="stakeQuestion" aria-describedby="formError" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0.00"></div>
+</section>
+<section class="wizard-step" data-step="result" aria-labelledby="resultQuestion" hidden>
+<h3 id="resultQuestion" class="question">How did it finish?</h3><p class="question-copy">We’ll work out the return from your result.</p>
+<div class="outcomes" role="radiogroup" aria-labelledby="resultQuestion">
+<label class="outcome"><input type="radio" name="result" value="win"><span class="outcome-symbol positive" aria-hidden="true">↗</span><span><strong>Win</strong><small>You received a payout</small></span><span class="outcome-check" aria-hidden="true"></span></label>
+<label class="outcome"><input type="radio" name="result" value="loss"><span class="outcome-symbol negative" aria-hidden="true">↘</span><span><strong>Loss</strong><small>Your stake was lost</small></span><span class="outcome-check" aria-hidden="true"></span></label>
+<label class="outcome"><input type="radio" name="result" value="push"><span class="outcome-symbol" aria-hidden="true">↔</span><span><strong>Push / void</strong><small>Your stake was returned</small></span><span class="outcome-check" aria-hidden="true"></span></label>
+</div>
+</section>
+<section class="wizard-step" data-step="return" aria-labelledby="returnQuestion" hidden>
+<h3 id="returnQuestion" class="question">What was the total payout?</h3><p class="question-copy">Include your original stake. <span id="returnExample"></span></p>
+<div class="money-input"><span aria-hidden="true">RM</span><input name="return" aria-labelledby="returnQuestion" aria-describedby="formError" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></div>
+</section>
+<section class="wizard-step" data-step="details" aria-labelledby="detailsQuestion" hidden>
+<h3 id="detailsQuestion" class="question">What did you bet on?</h3><p class="question-copy">Just enough to recognise it in your journal.</p>
+<p id="autoReturn" class="auto-return" hidden></p>
+<div class="field-stack"><label>Sport / market<input required name="market" maxlength="150" placeholder="Premier League" autocomplete="off"></label><label>Selection<input required name="selection" maxlength="200" placeholder="Arsenal to win" autocomplete="off"></label></div>
+</section>
+<section class="wizard-step" data-step="review" aria-labelledby="reviewQuestion" hidden>
+<h3 id="reviewQuestion" class="question" tabindex="-1">Ready to log it?</h3><p class="question-copy">Check the numbers before saving.</p>
+<div id="betReview" class="receipt"></div><p id="reviewDate" class="review-date"></p>
+<input name="date" type="hidden">
+<details class="optional-details"><summary>Add time or notes <span class="form-note">(optional)</span></summary><div class="field-stack"><label>Bet time<input name="time" type="time" required></label><label>Notes<input name="notes" maxlength="1000" placeholder="Odds, context, or a lesson" autocomplete="off"></label></div></details>
+</section>
+<p id="formError" class="form-error" role="alert"></p></div>
+<div class="wizard-actions"><button id="backStep" class="secondary" type="button" hidden>Back</button><button id="saveBet" class="primary" type="submit"><span id="nextLabel">Continue</span><svg id="nextArrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></button></div>
+</form>
 </dialog>
 <div id="toast" class="toast" role="status"></div>
 <script>
@@ -84,29 +119,91 @@ function render(){
  $('#empty').hidden=bets.length>0;
  if(ready){$('#emptyTitle').textContent='Your journal starts here';$('#emptyText').textContent='Tap a date on the calendar to log your first bet.';}
 }
+let currentStep='stake',saving=false;
+const field=name=>$('#modalForm [name="'+name+'"]');
+const resultValue=()=>$('#modalForm [name=result]:checked')?.value;
+const wizardSteps=()=>resultValue()==='win'?['stake','result','return','details','review']:['stake','result','details','review'];
+function betNumbers(){
+ const stake=Number(field('stake').value),result=resultValue(),ret=result==='loss'?0:result==='push'?stake:Number(field('return').value);
+ return{stake,result,ret,pnl:Math.round((ret-stake)*100)/100};
+}
+function showStep(step,focus=true){
+ currentStep=step;const steps=wizardSteps(),index=steps.indexOf(step);
+ document.querySelectorAll('.wizard-step').forEach(panel=>{panel.hidden=panel.dataset.step!==step});
+ $('#stepCount').textContent='Step '+(index+1)+' of '+steps.length;
+ $('#stepLabel').textContent=({stake:'Stake',result:'Result',return:'Payout',details:'Bet details',review:'Review'})[step];
+ $('#stepTrack').innerHTML=steps.map((s,i)=>'<span class="'+(i<index?'complete':i===index?'current':'')+'"></span>').join('');
+ $('#backStep').hidden=index===0;$('#nextLabel').textContent=step==='review'?'Save bet':'Continue';$('#nextArrow').style.display=step==='review'?'none':'';
+ $('#formError').classList.remove('visible');
+ const {stake,result,ret,pnl}=betNumbers();
+ $('#returnExample').textContent='Your stake was '+money(stake)+'.';
+ $('#autoReturn').hidden=result==='win';
+ $('#autoReturn').textContent=result==='loss'?'Loss · Return set to RM 0.00.':'Push / void · '+money(stake)+' stake returned.';
+ if(step==='review'){
+  $('#betReview').innerHTML='<div class="receipt-top"><div class="receipt-selection">'+esc(field('selection').value.trim())+'</div><div class="receipt-market">'+esc(field('market').value.trim())+'</div></div><div class="receipt-row"><span>Result</span><strong>'+({win:'Win',loss:'Loss',push:'Push / void'})[result]+'</strong></div><div class="receipt-row"><span>Stake</span><strong>'+money(stake)+'</strong></div><div class="receipt-row"><span>Total return</span><strong>'+money(ret)+'</strong></div><div class="receipt-row receipt-net"><span>Net P&amp;L</span><strong class="'+tone(pnl)+'">'+(pnl>0?'+':pnl<0?'−':'')+'RM '+amount(Math.abs(pnl))+'</strong></div>';
+  updateBetTime();
+ }
+ if(focus){
+  const panel=$('.wizard-step[data-step="'+step+'"]');
+  (step==='review'?$('#reviewQuestion'):panel.querySelector('input:checked')||panel.querySelector('input'))?.focus({preventScroll:true});
+  $('.wizard-body').scrollTop=0;
+ }
+}
+function showFormError(message,target){
+ $('#formError').textContent=message;$('#formError').classList.add('visible');
+ if(target){target.setAttribute('aria-invalid','true');target.focus();}
+ return false;
+}
+function validateStep(step){
+ if(step==='stake'&&(!field('stake').checkValidity()||Number(field('stake').value)<=0))return showFormError('Enter a stake of at least RM 0.01, with up to two decimal places.',field('stake'));
+ if(step==='result'&&!resultValue())return showFormError('Choose how the bet finished.',field('result'));
+ if(step==='return'){
+  if(!field('return').value||!field('return').checkValidity())return showFormError('Enter the total payout, with up to two decimal places.',field('return'));
+  if(Number(field('return').value)<Number(field('stake').value))return showFormError('The payout for a win must include at least your original stake.',field('return'));
+ }
+ if(step==='details'){
+  for(const name of ['market','selection'])if(!field(name).value.trim()||!field(name).checkValidity())return showFormError('Enter '+(name==='market'?'the sport or market.':'your selection.'),field(name));
+ }
+ if(step==='review'&&(!field('time').value||!field('time').checkValidity())){
+  $('.optional-details').open=true;return showFormError('Enter a valid bet time.',field('time'));
+ }
+ return true;
+}
+function updateBetTime(){
+ const date=field('date').value.split('T')[0];
+ field('date').value=date+'T'+field('time').value;
+ if(field('time').value)$('#reviewDate').textContent=new Date(field('date').value).toLocaleString('en-MY',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
 function openModal(date,target){
- opener=target;$('#modalForm').reset();$('#formError').classList.remove('visible');$('#modalForm [name=return]').disabled=false;
- $('#modalForm [name=date]').value=date+'T12:00';
+ opener=target;$('#modalForm').reset();$('.optional-details').open=false;
+ document.querySelectorAll('#modalForm [aria-invalid]').forEach(input=>input.removeAttribute('aria-invalid'));
+ field('date').value=date+'T12:00';field('time').value='12:00';
  $('#modalDate').textContent=new Date(date+'T12:00').toLocaleDateString('en-MY',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
- $('#betModal').showModal();
+ showStep('stake',false);$('#betModal').showModal();field('stake').focus();
 }
 $('#calendar').addEventListener('click',e=>{const day=e.target.closest('[data-date]');if(day&&ready)openModal(day.dataset.date,day)});
-$('#closeModal').onclick=()=>$('#betModal').close();
+$('#closeModal').onclick=()=>{if(!saving)$('#betModal').close()};
+$('#betModal').addEventListener('cancel',e=>{if(saving)e.preventDefault()});
 $('#betModal').addEventListener('close',()=>{document.querySelector('[data-date="'+(opener?.dataset.date||'')+'"]')?.focus()});
-$('#betModal').addEventListener('click',e=>{if(e.target!==$('#betModal'))return;const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()});
-function adjustReturn(){const result=$('#modalForm [name=result]').value,field=$('#modalForm [name=return]');field.disabled=result!=='win';if(result==='loss')field.value='0.00';if(result==='push')field.value=$('#modalForm [name=stake]').value;}
-$('#modalForm [name=result]').onchange=adjustReturn;$('#modalForm [name=stake]').oninput=()=>{if($('#modalForm [name=result]').value==='push')adjustReturn()};
+$('#betModal').addEventListener('click',e=>{if(saving||e.target!==$('#betModal'))return;const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()});
+$('#backStep').onclick=()=>{if(!saving){const steps=wizardSteps();showStep(steps[steps.indexOf(currentStep)-1])}};
+$('#modalForm').addEventListener('input',e=>{e.target.removeAttribute('aria-invalid');$('#formError').classList.remove('visible')});
+document.querySelectorAll('[name=result]').forEach(radio=>radio.addEventListener('change',()=>showStep('result',false)));
+field('time').oninput=updateBetTime;
 $('#modalForm').onsubmit=async e=>{
- e.preventDefault();if(!ready)return;
- const form=new FormData(e.target),stake=Number(form.get('stake')),result=form.get('result'),ret=result==='loss'?0:result==='push'?stake:Number(form.get('return'));
- const error=$('#formError');error.classList.remove('visible');
- if(result==='win'&&ret<stake){error.textContent='A winning bet’s total return must cover its stake.';error.classList.add('visible');return;}
- const payload={id:crypto.randomUUID(),market:form.get('market').trim(),selection:form.get('selection').trim(),stake,return:ret,result,bet_date:new Date(form.get('date')).toISOString(),notes:form.get('notes').trim(),pnl:Math.round((ret-stake)*100)/100};
- if(!payload.market||!payload.selection){error.textContent='Enter a market and selection.';error.classList.add('visible');return;}
- const btn=$('#saveBet');btn.disabled=true;btn.textContent='Saving…';$('#closeModal').disabled=true;
+ e.preventDefault();if(!ready||saving)return;
+ if(!validateStep(currentStep))return;
+ const steps=wizardSteps(),index=steps.indexOf(currentStep);
+ if(currentStep!=='review'){showStep(steps[index+1]);return;}
+ for(const step of steps){if(!validateStep(step)){showStep(step);validateStep(step);return;}}
+ updateBetTime();const {stake,result,ret,pnl}=betNumbers();
+ const payload={id:crypto.randomUUID(),market:field('market').value.trim(),selection:field('selection').value.trim(),stake,return:ret,result,bet_date:new Date(field('date').value).toISOString(),notes:field('notes').value.trim(),pnl};
+ saving=true;$('#modalForm').setAttribute('aria-busy','true');
+ const controls=Array.from(document.querySelectorAll('#modalForm input, #modalForm button, #closeModal'));controls.forEach(control=>control.disabled=true);
+ $('#nextLabel').textContent='Saving…';
  try{const rows=await request('',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});bets.push(fromRow(rows[0]));render();$('#betModal').close();toast('Bet saved');}
- catch(err){error.textContent='Could not save. '+err.message;error.classList.add('visible');}
- finally{btn.disabled=false;btn.textContent='Save bet';$('#closeModal').disabled=false;}
+ catch(err){showFormError('Could not save. '+err.message);}
+ finally{saving=false;$('#modalForm').removeAttribute('aria-busy');controls.forEach(control=>control.disabled=false);$('#nextLabel').textContent='Save bet';}
 };
 $('#rows').addEventListener('click',async e=>{
  const btn=e.target.closest('[data-id]');if(!btn)return;btn.disabled=true;
